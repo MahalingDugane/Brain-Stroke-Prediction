@@ -1,0 +1,819 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Brain Stroke Prediction | Abstract</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+  <!-- Google Font -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      background: #f4f8ff;
+      color: #102a56;
+    }
+
+    /* NAVBAR */
+
+    .navbar {
+      background: white;
+      padding: 18px 0;
+      box-shadow: 0 4px 25px rgba(20, 70, 130, 0.08);
+    }
+
+    .navbar-brand {
+      font-size: 22px;
+      font-weight: 800;
+      color: #102a56 !important;
+    }
+
+    .navbar-brand i {
+      color: #147cff;
+      margin-right: 8px;
+    }
+
+    .nav-link {
+      color: #243b63 !important;
+      font-size: 13px;
+      font-weight: 700;
+      margin-left: 22px;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #147cff !important;
+    }
+
+    /* HERO */
+
+    .abstract-hero {
+      margin-top: 76px;
+      padding: 90px 20px;
+      text-align: center;
+      color: white;
+      background:
+        linear-gradient(
+          120deg,
+          rgba(4, 38, 88, 0.95),
+          rgba(20, 124, 255, 0.80)
+        ),
+        url("https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1800&q=85");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-icon {
+      width: 78px;
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      font-size: 34px;
+    }
+
+    .abstract-hero h1 {
+      font-size: 46px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .abstract-hero p {
+      max-width: 760px;
+      margin: auto;
+      color: #e7f1ff;
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    /* MAIN CONTENT */
+
+    .content-section {
+      padding: 80px 0;
+    }
+
+    .section-label {
+      color: #147cff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 34px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .section-description {
+      color: #71819b;
+      font-size: 15px;
+      line-height: 1.9;
+      max-width: 750px;
+      margin: auto;
+    }
+
+    /* ABSTRACT CARD */
+
+    .abstract-card {
+      background: white;
+      border-radius: 24px;
+      padding: 45px;
+      margin-top: 45px;
+      border: 1px solid #e3edfc;
+      box-shadow: 0 15px 45px rgba(20, 75, 140, 0.09);
+    }
+
+    .card-heading {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .card-heading-icon {
+      width: 58px;
+      height: 58px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #eaf4ff;
+      color: #147cff;
+      border-radius: 16px;
+      font-size: 25px;
+    }
+
+    .card-heading h2 {
+      font-size: 24px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .abstract-card p {
+      color: #61728e;
+      font-size: 15px;
+      line-height: 2;
+      text-align: justify;
+      margin-bottom: 20px;
+    }
+
+    /* KEY FEATURES */
+
+    .feature-card {
+      height: 100%;
+      background: white;
+      padding: 30px 25px;
+      border-radius: 18px;
+      border: 1px solid #e3edfc;
+      box-shadow: 0 8px 30px rgba(20, 75, 140, 0.06);
+      transition: 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 15px 35px rgba(20, 124, 255, 0.14);
+    }
+
+    .feature-card i {
+      color: #147cff;
+      font-size: 27px;
+      margin-bottom: 20px;
+    }
+
+    .feature-card h5 {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      color: #71819b;
+      font-size: 13px;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    /* TECHNOLOGY SECTION */
+
+    .technology-section {
+      background: #edf6ff;
+      padding: 80px 0;
+    }
+
+    .algorithm-box {
+      background: white;
+      border-radius: 16px;
+      padding: 22px;
+      text-align: center;
+      height: 100%;
+      border: 1px solid #dcecff;
+      transition: 0.3s;
+    }
+
+    .algorithm-box:hover {
+      transform: translateY(-5px);
+      border-color: #147cff;
+    }
+
+    .algorithm-box i {
+      color: #147cff;
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .algorithm-box h6 {
+      font-weight: 700;
+      margin: 0;
+    }
+
+    /* DISCLAIMER */
+
+    .disclaimer {
+      background: #fff8e6;
+      border-left: 5px solid #f2b632;
+      border-radius: 12px;
+      padding: 25px;
+      margin-top: 45px;
+    }
+
+    .disclaimer h5 {
+      color: #9a6b00;
+      font-weight: 800;
+    }
+
+    .disclaimer p {
+      color: #806b3a;
+      font-size: 13px;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #071f43;
+      color: white;
+      padding: 55px 0 20px;
+    }
+
+    .footer-brand {
+      font-size: 21px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .footer-brand i {
+      color: #65c5ff;
+      margin-right: 8px;
+    }
+
+    footer p {
+      color: #b8c9e1;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    footer h6 {
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: #b8c9e1;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #244264;
+      margin-top: 35px;
+      padding-top: 20px;
+      text-align: center;
+    }
+
+    .footer-bottom p {
+      margin: 0;
+      font-size: 12px;
+    }
+
+    /* MOBILE RESPONSIVE */
+
+    @media (max-width: 768px) {
+
+      .navbar {
+        padding: 14px 0;
+      }
+
+      .navbar-brand {
+        font-size: 17px;
+      }
+
+      .nav-link {
+        margin-left: 0;
+        padding: 12px 0 !important;
+      }
+
+      .abstract-hero {
+        margin-top: 65px;
+        padding: 65px 20px;
+      }
+
+      .abstract-hero h1 {
+        font-size: 31px;
+      }
+
+      .abstract-hero p {
+        font-size: 13px;
+        line-height: 1.8;
+      }
+
+      .content-section,
+      .technology-section {
+        padding: 55px 0;
+      }
+
+      .section-title {
+        font-size: 27px;
+      }
+
+      .section-description {
+        font-size: 13px;
+        padding: 0 10px;
+      }
+
+      .abstract-card {
+        padding: 25px 20px;
+        margin-top: 30px;
+        border-radius: 18px;
+      }
+
+      .card-heading h2 {
+        font-size: 19px;
+      }
+
+      .abstract-card p {
+        font-size: 13px;
+        line-height: 1.9;
+        text-align: left;
+      }
+
+      .feature-card {
+        padding: 25px 20px;
+      }
+
+      .disclaimer {
+        margin: 30px 15px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+
+      <a class="navbar-brand" href="/">
+        <i class="fa-solid fa-brain"></i>
+        Brain Stroke Prediction
+      </a>
+
+      <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar" aria-expanded="false"
+        aria-label="Toggle navigation">
+
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto">
+
+          <li class="nav-item">
+            <a class="nav-link" href="/">HOME</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/aboutus">ABOUT US</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="/abstract">ABSTRACT</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/contactus">CONTACT US</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/register">SIGN UP</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/login">LOGIN</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="abstract-hero">
+
+    <div class="hero-icon">
+      <i class="fa-solid fa-file-lines"></i>
+    </div>
+
+    <h1>Project Abstract</h1>
+
+    <p>
+      Discover how machine learning techniques are used to explore
+      brain stroke risk prediction and support health awareness.
+    </p>
+
+  </section>
+
+  <!-- MAIN ABSTRACT -->
+
+  <section class="content-section">
+
+    <div class="container">
+
+      <div class="text-center">
+        <div class="section-label">PROJECT OVERVIEW</div>
+
+        <h2 class="section-title">
+          Brain Stroke Prediction Using Machine Learning
+        </h2>
+
+        <p class="section-description">
+          This project focuses on developing a user-friendly web
+          application that uses machine learning techniques for
+          brain stroke risk prediction.
+        </p>
+      </div>
+
+      <div class="abstract-card">
+
+        <div class="card-heading">
+
+          <div class="card-heading-icon">
+            <i class="fa-solid fa-brain"></i>
+          </div>
+
+          <h2>Brain Stroke Prediction</h2>
+
+        </div>
+
+        <p>
+          This project focuses on developing a web application for
+          Stroke Prediction using Machine Learning. A stroke is a
+          serious medical condition that occurs when the blood supply
+          to the brain is disrupted, which can lead to potentially
+          life-threatening consequences.
+        </p>
+
+        <p>
+          Various factors can contribute to stroke risk, including
+          hypertension, diabetes, age, lifestyle choices, and other
+          health-related conditions. The project uses machine learning
+          techniques to analyze information provided by users and
+          generate prediction results.
+        </p>
+
+        <p>
+          Several machine learning algorithms, including K-Nearest
+          Neighbors (KNN), Artificial Neural Networks (ANN), Random
+          Forest, Decision Tree, Naive Bayes, and Support Vector
+          Machines (SVM), are considered for stroke prediction.
+        </p>
+
+        <p>
+          Machine learning can analyze historical datasets to identify
+          patterns and relationships between different health factors.
+          The web application provides an interface where users can
+          enter relevant information and view the prediction generated
+          by the trained model.
+        </p>
+
+        <p>
+          The expected outcome of this project is a simple and
+          accessible application that supports educational learning
+          about machine learning and stroke-related risk factors.
+          The system is intended to promote awareness and does not
+          replace professional medical diagnosis or treatment.
+        </p>
+
+      </div>
+
+      <!-- FEATURES -->
+
+      <div class="text-center mt-5 mb-4">
+
+        <div class="section-label">PROJECT HIGHLIGHTS</div>
+
+        <h2 class="section-title">
+          Key Features
+        </h2>
+
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-lg-4 col-md-6">
+          <div class="feature-card">
+
+            <i class="fa-solid fa-microchip"></i>
+
+            <h5>Machine Learning</h5>
+
+            <p>
+              Uses machine learning concepts to analyze health-related
+              input data and generate prediction results.
+            </p>
+
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="feature-card">
+
+            <i class="fa-solid fa-user-check"></i>
+
+            <h5>User-Friendly Interface</h5>
+
+            <p>
+              Provides a simple web interface for entering information
+              and interacting with the prediction system.
+            </p>
+
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="feature-card">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <h5>Risk Factor Analysis</h5>
+
+            <p>
+              Allows users to explore selected health-related factors
+              associated with stroke prediction.
+            </p>
+
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="feature-card">
+
+            <i class="fa-solid fa-lock"></i>
+
+            <h5>Login System</h5>
+
+            <p>
+              Includes user registration and login functionality
+              before accessing the prediction page.
+            </p>
+
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="feature-card">
+
+            <i class="fa-solid fa-database"></i>
+
+            <h5>Data-Based Prediction</h5>
+
+            <p>
+              Uses input information and a trained model to produce
+              a prediction result.
+            </p>
+
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="feature-card">
+
+            <i class="fa-solid fa-graduation-cap"></i>
+
+            <h5>Educational Purpose</h5>
+
+            <p>
+              Helps students understand machine learning applications
+              in the healthcare domain.
+            </p>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- TECHNOLOGY SECTION -->
+
+  <section class="technology-section">
+
+    <div class="container">
+
+      <div class="text-center mb-5">
+
+        <div class="section-label">TECHNOLOGY</div>
+
+        <h2 class="section-title">
+          Machine Learning Algorithms
+        </h2>
+
+        <p class="section-description">
+          The project discusses different algorithms used in machine
+          learning-based stroke prediction.
+        </p>
+
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-lg-4 col-md-6">
+          <div class="algorithm-box">
+            <i class="fa-solid fa-network-wired"></i>
+            <h6>K-Nearest Neighbors (KNN)</h6>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="algorithm-box">
+            <i class="fa-solid fa-brain"></i>
+            <h6>Artificial Neural Networks (ANN)</h6>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="algorithm-box">
+            <i class="fa-solid fa-tree"></i>
+            <h6>Random Forest</h6>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="algorithm-box">
+            <i class="fa-solid fa-code-branch"></i>
+            <h6>Decision Tree</h6>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="algorithm-box">
+            <i class="fa-solid fa-calculator"></i>
+            <h6>Naive Bayes</h6>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="algorithm-box">
+            <i class="fa-solid fa-chart-simple"></i>
+            <h6>Support Vector Machines (SVM)</h6>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- DISCLAIMER -->
+
+      <div class="disclaimer">
+
+        <h5>
+          <i class="fa-solid fa-circle-info me-2"></i>
+          Important Information
+        </h5>
+
+        <p>
+          This project is developed for educational and awareness
+          purposes. Prediction results should not be considered a
+          medical diagnosis. Always consult a qualified healthcare
+          professional for medical advice, diagnosis, or treatment.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="row g-5">
+
+        <div class="col-lg-5">
+
+          <div class="footer-brand">
+            <i class="fa-solid fa-brain"></i>
+            Brain Stroke Prediction
+          </div>
+
+          <p>
+            A machine-learning-based student project designed for
+            educational learning and brain stroke risk awareness.
+          </p>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+          <h6>Quick Links</h6>
+
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/aboutus">About Us</a></li>
+            <li><a href="/abstract">Abstract</a></li>
+            <li><a href="/contactus">Contact Us</a></li>
+          </ul>
+
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+
+          <h6>Account</h6>
+
+          <ul class="footer-links">
+            <li><a href="/register">Create Account</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/Model">Prediction Model</a></li>
+          </ul>
+
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+
+        <p>
+          © 2026 Brain Stroke Prediction | Student Project
+        </p>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <!-- Bootstrap JS -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

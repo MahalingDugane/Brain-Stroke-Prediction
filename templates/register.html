@@ -1,0 +1,480 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Brain Stroke Prediction | Register</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #edf5ff, #f5f1ff);
+      color: #203665;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      height: 82px;
+      padding: 0 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      box-shadow: 0 5px 25px rgba(35, 70, 140, 0.08);
+    }
+
+    .logo {
+      color: #193873;
+      font-size: 23px;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #586681;
+      font-size: 12px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #2877ec;
+    }
+
+    .login-btn {
+      padding: 11px 23px;
+      border-radius: 25px;
+      color: white !important;
+      background: linear-gradient(100deg, #087ff3, #6335e8);
+    }
+
+    /* MAIN */
+    .page {
+      min-height: calc(100vh - 82px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 45px 20px;
+    }
+
+    .register-box {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      width: 100%;
+      max-width: 960px;
+      overflow: hidden;
+      border-radius: 26px;
+      background: white;
+      box-shadow: 0 25px 65px rgba(40, 80, 165, 0.16);
+    }
+
+    /* LEFT PANEL */
+    .welcome {
+      padding: 48px 38px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: white;
+      background: linear-gradient(145deg, #087ff3, #6335e8);
+    }
+
+    .welcome-icon {
+      font-size: 54px;
+      margin-bottom: 24px;
+    }
+
+    .welcome h1 {
+      font-size: 30px;
+      line-height: 1.35;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .welcome p {
+      font-size: 13px;
+      line-height: 1.9;
+      opacity: 0.9;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin-top: 25px;
+      font-size: 12px;
+    }
+
+    .benefit-icon {
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* FORM */
+    .form-section {
+      padding: 42px;
+    }
+
+    .heading {
+      margin-bottom: 26px;
+    }
+
+    .heading h2 {
+      color: #19366d;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    .heading p {
+      color: #8b98b0;
+      font-size: 12px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .input-group {
+      margin-bottom: 17px;
+    }
+
+    .input-group label {
+      display: block;
+      color: #354b75;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 13px 15px;
+      border: 1px solid #dce4f1;
+      border-radius: 10px;
+      outline: none;
+      background: #f9fbff;
+      color: #263c68;
+      font-family: inherit;
+      font-size: 12px;
+      transition: 0.3s;
+    }
+
+    .input-group input:focus {
+      border-color: #3b80ec;
+      background: white;
+      box-shadow: 0 0 0 4px rgba(59, 128, 236, 0.1);
+    }
+
+    .input-group input::placeholder {
+      color: #9aa6ba;
+    }
+
+    /* FLASH MESSAGE */
+    .alert {
+      padding: 12px;
+      margin-bottom: 18px;
+      border: 1px solid #ffcaca;
+      border-radius: 9px;
+      background: #fff0f0;
+      color: #bd3030;
+      font-size: 12px;
+    }
+
+    /* BUTTON */
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 28px;
+      background: linear-gradient(100deg, #087ff3, #6335e8);
+      color: white;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(59, 100, 230, 0.23);
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(59, 100, 230, 0.35);
+    }
+
+    .bottom-text {
+      text-align: center;
+      color: #8995aa;
+      font-size: 12px;
+      margin-top: 22px;
+    }
+
+    .bottom-text a {
+      color: #2875e9;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .security {
+      text-align: center;
+      color: #a0aabd;
+      font-size: 10px;
+      margin-top: 15px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 800px) {
+      .register-box {
+        grid-template-columns: 1fr;
+        max-width: 510px;
+      }
+
+      .welcome {
+        padding: 32px;
+        text-align: center;
+      }
+
+      .benefit {
+        justify-content: center;
+      }
+
+      .form-section {
+        padding: 30px;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .navbar {
+        height: auto;
+        padding: 20px;
+        flex-direction: column;
+        gap: 17px;
+      }
+
+      .logo {
+        font-size: 19px;
+      }
+
+      .nav-links {
+        gap: 13px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-links a {
+        font-size: 10px;
+      }
+
+      .page {
+        padding: 25px 15px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .form-section {
+        padding: 25px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+
+    <div class="logo">
+      🧠 Brain Stroke Prediction
+    </div>
+
+    <div class="nav-links">
+      <a href="/">HOME</a>
+      <a href="/aboutus">ABOUT US</a>
+      <a href="/abstract">ABSTRACT</a>
+      <a href="/contactus">CONTACT</a>
+      <a href="/login" class="login-btn">LOGIN</a>
+    </div>
+
+  </nav>
+
+  <!-- REGISTRATION -->
+  <main class="page">
+
+    <div class="register-box">
+
+      <!-- LEFT SIDE -->
+      <section class="welcome">
+
+        <div class="welcome-icon">🩺</div>
+
+        <h1>
+          Begin Your<br>
+          Health Journey
+        </h1>
+
+        <p>
+          Create your account and access our Brain Stroke
+          Prediction system with a simple and user-friendly
+          experience.
+        </p>
+
+        <div class="benefit">
+          <span class="benefit-icon">✓</span>
+          Easy registration process
+        </div>
+
+        <div class="benefit">
+          <span class="benefit-icon">✓</span>
+          Secure account access
+        </div>
+
+        <div class="benefit">
+          <span class="benefit-icon">✓</span>
+          Simple prediction experience
+        </div>
+
+      </section>
+
+      <!-- RIGHT SIDE -->
+      <section class="form-section">
+
+        <div class="heading">
+          <h2>Create Account</h2>
+          <p>Fill in your details to register</p>
+        </div>
+
+        <!-- FLASH MESSAGES -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <!-- EXISTING FORM FUNCTIONALITY -->
+        <form action="/register" method="post">
+
+          <div class="form-row">
+
+            <div class="input-group">
+              <label for="fname">First Name</label>
+              <input
+                type="text"
+                id="fname"
+                name="fname"
+                placeholder="Enter your first name"
+                required
+                minlength="3"
+                value=""
+                title="Name should consist of more than 2 characters">
+            </div>
+
+            <div class="input-group">
+              <label for="lname">Last Name</label>
+              <input
+                type="text"
+                id="lname"
+                name="lname"
+                placeholder="Enter your last name"
+                required
+                minlength="3"
+                value=""
+                title="Name should consist of more than 2 characters">
+            </div>
+
+          </div>
+
+          <div class="input-group">
+            <label for="email">Email Address</label>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              placeholder="Enter your email address"
+              required
+              pattern="[a-zA-Z0-9][a-zA-Z0-9._]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+"
+              value=""
+              title="Please enter a valid email address">
+          </div>
+
+          <div class="input-group">
+            <label for="uname">Username</label>
+            <input
+              type="text"
+              id="uname"
+              name="uname"
+              placeholder="Create your username"
+              required
+              minlength="3"
+              value=""
+              title="Username should consist of more than 2 characters">
+          </div>
+
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Create your password"
+              required
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
+              value=""
+              title="Password must contain 8-12 characters, including one lowercase letter, one uppercase letter, one number, and one special character">
+          </div>
+
+          <button class="submit-btn" type="submit">
+            CREATE ACCOUNT →
+          </button>
+
+        </form>
+
+        <p class="bottom-text">
+          Already have an account?
+          <a href="/login">Login here</a>
+        </p>
+
+        <p class="security">
+          🔒 Your account information is protected
+        </p>
+
+      </section>
+
+    </div>
+
+  </main>
+
+</body>
+
+</html>

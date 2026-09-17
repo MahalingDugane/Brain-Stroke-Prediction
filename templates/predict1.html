@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autism Prediction</title>
+    <style>
+        body {
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+
+            background-image: url("static/bg.png"); 
+		  background-size: 180%;
+          margin: 0px;
+          padding: 0px;
+          background-color: rgb(115, 115, 199);
+
+}
+li {
+    display: inline-block;
+
+}
+a{
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+h3
+{
+    color: burlywood;
+}
+    </style>
+</head>
+<body>
+    <nav style="background-color: white; padding: 10px;box-shadow:5px 10px white;" >
+        <ul>
+        <li><a href="#">Brain Stroke Prediction</a></li>
+        <li><a href="/stroke" style="margin-left: 1000px;">Prediction</a></li>
+        <li><a href="/" style="margin-left: 20px;">Home</a></li>
+    </ul>
+    </nav>
+    
+    <h3 style="margin-left: 400px; font-size: 45px;color: white;"><strong>{{ prediction_text }}</strong>
+    <img src="/static/assets/img/happy.gif"  controls style="margin-left: 250px;" height="600px">
+</h3>
+    
+</body>
+</html>

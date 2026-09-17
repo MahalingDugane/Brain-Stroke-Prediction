@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Brain Stroke Prediction</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e8f0ff, #f8fbff);
+      color: #263238;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: white;
+      padding: 20px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .logo {
+      color: #173b8f;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      color: #555;
+      text-decoration: none;
+      margin-left: 28px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: #2457d6;
+    }
+
+    /* Main section */
+    .main {
+      min-height: calc(100vh - 80px);
+      padding: 45px 20px;
+    }
+
+    .heading {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .heading h1 {
+      color: #173b8f;
+      font-size: 38px;
+      margin-bottom: 8px;
+    }
+
+    .heading p {
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    /* Form card */
+    .form-card {
+      max-width: 800px;
+      margin: auto;
+      padding: 35px 40px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 35px rgba(30, 64, 175, 0.12);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #d6dce8;
+      border-radius: 9px;
+      background: #f9fbff;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: #3867e8;
+      box-shadow: 0 0 0 3px rgba(56, 103, 232, 0.12);
+      background: white;
+    }
+
+    .error-message {
+      background: #fff0f0;
+      color: #c62828;
+      border: 1px solid #ffcdd2;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 22px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .predict-button {
+      border: none;
+      border-radius: 10px;
+      padding: 14px 45px;
+      background: linear-gradient(135deg, #2457d6, #173b8f);
+      color: white;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .predict-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(36, 87, 214, 0.3);
+    }
+
+    .note {
+      text-align: center;
+      color: #8a94a6;
+      font-size: 11px;
+      margin-top: 22px;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 650px) {
+      .navbar {
+        padding: 18px 20px;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-links a {
+        margin: 0 8px;
+        font-size: 12px;
+      }
+
+      .heading h1 {
+        font-size: 28px;
+      }
+
+      .form-card {
+        padding: 25px 20px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="logo">🧠 Brain Stroke Prediction</div>
+
+    <div class="nav-links">
+      <a href="/">HOME</a>
+      <a href="/aboutus">ABOUT US</a>
+      <a href="/abstract">ABSTRACT</a>
+      <a href="/contactus">CONTACT US</a>
+    </div>
+  </nav>
+
+  <main class="main">
+
+    <div class="heading">
+      <h1>Brain Stroke Prediction</h1>
+      <p>Enter the patient's details to receive a model-based prediction.</p>
+    </div>
+
+    <div class="form-card">
+
+      {% if error %}
+      <div class="error-message">
+        {{ error }}
+      </div>
+      {% endif %}
+
+      <form action="/predict" method="post">
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="Gender">Gender</label>
+            <select name="Gender" id="Gender" required>
+              <option value="1">Male</option>
+              <option value="0">Female</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="SCORE">Age</label>
+            <input type="number" name="SCORE" id="SCORE"
+                   placeholder="Enter age" min="0" max="120"
+                   step="any" required>
+          </div>
+
+          <div class="form-group">
+            <label for="Hypertension">Hypertension</label>
+            <select name="Hypertension" id="Hypertension" required>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="Heart_Disease">Heart Disease</label>
+            <select name="Heart_Disease" id="Heart_Disease" required>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="Marriage_Status">Ever Married</label>
+            <select name="Marriage_Status" id="Marriage_Status" required>
+              <option value="1">Married</option>
+              <option value="0">Unmarried</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="Work_Type">Work Type</label>
+            <select name="Work_Type" id="Work_Type" required>
+              <option value="2">Private</option>
+              <option value="1">Government Job</option>
+              <option value="3">Self-employed</option>
+              <option value="0">Children</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="Residence">Residence Type</label>
+            <select name="Residence" id="Residence" required>
+              <option value="0">Rural</option>
+              <option value="1">Urban</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="Depression">Average Glucose Level</label>
+            <input type="number" name="Depression" id="Depression"
+                   placeholder="e.g. 100" min="0.1"
+                   step="any" required>
+          </div>
+
+          <div class="form-group">
+            <label for="intellectual_disability">Body Mass Index (BMI)</label>
+            <input type="number" name="intellectual_disability"
+                   id="intellectual_disability"
+                   placeholder="e.g. 25" min="0.1"
+                   step="any" required>
+          </div>
+
+          <div class="form-group">
+            <label for="Smoking_Status">Smoking Status</label>
+            <select name="Smoking_Status" id="Smoking_Status" required>
+              <option value="0">Formerly Smoked</option>
+              <option value="1">Never Smoked</option>
+              <option value="2">Smokes</option>
+              <option value="3">Unknown</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="button-container">
+          <button type="submit" class="predict-button">
+            🔍 Predict Stroke Risk
+          </button>
+        </div>
+
+        <p class="note">
+          This tool provides a machine-learning prediction and is not a medical diagnosis.
+        </p>
+
+      </form>
+
+    </div>
+
+  </main>
+
+</body>
+</html>

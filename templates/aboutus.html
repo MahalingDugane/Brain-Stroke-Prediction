@@ -1,0 +1,889 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>About Us | Brain Stroke Prediction</title>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f5f8ff;
+      color: #294365;
+    }
+
+    .navbar {
+      background: #ffffff;
+      padding: 18px 0;
+      box-shadow: 0 3px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .navbar-brand {
+      font-size: 21px;
+      font-weight: 800;
+      color: #1769ff !important;
+    }
+
+    .nav-link {
+      color: #526174 !important;
+      font-weight: 600;
+      margin-left: 18px;
+    }
+
+    .nav-link:hover {
+      color: #1769ff !important;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 150px 0 100px;
+      background: linear-gradient(120deg, #102e60, #227edb);
+      color: white;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.12);
+      margin-bottom: 25px;
+      font-weight: 600;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .hero h1 span {
+      color: #66d5ff;
+    }
+
+    .hero p {
+      color: #e1edff;
+      font-size: 16px;
+      line-height: 1.9;
+      margin-top: 25px;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      border-radius: 25px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+    }
+
+    /* GENERAL */
+    .section {
+      padding: 85px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 34px;
+      font-weight: 800;
+      color: #163b6b;
+      margin-bottom: 18px;
+    }
+
+    .section-subtitle {
+      max-width: 750px;
+      margin: 0 auto 50px;
+      text-align: center;
+      color: #718096;
+      line-height: 1.8;
+    }
+
+    .content-heading {
+      font-size: 30px;
+      font-weight: 800;
+      color: #163b6b;
+      margin-bottom: 20px;
+    }
+
+    .content-text {
+      color: #61738d;
+      line-height: 1.9;
+      font-size: 15px;
+    }
+
+    .info-image {
+      width: 100%;
+      height: 370px;
+      object-fit: cover;
+      border-radius: 22px;
+      box-shadow: 0 12px 30px rgba(31, 74, 125, 0.15);
+    }
+
+    /* STROKE TYPES */
+    .type-card {
+      height: 100%;
+      padding: 30px;
+      background: white;
+      border: 1px solid #e2eafa;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(35, 83, 140, 0.06);
+      transition: 0.3s;
+    }
+
+    .type-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(35, 83, 140, 0.15);
+    }
+
+    .card-icon {
+      width: 58px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+      background: #eaf3ff;
+      font-size: 27px;
+      margin-bottom: 20px;
+    }
+
+    .type-card h4 {
+      color: #203f69;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .type-card p {
+      color: #718096;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* SYMPTOMS */
+    .symptom-card {
+      height: 100%;
+      background: white;
+      border: 1px solid #e3eafa;
+      border-radius: 18px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .symptom-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(35, 83, 140, 0.12);
+    }
+
+    .symptom-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+    }
+
+    .symptom-content {
+      padding: 23px;
+    }
+
+    .symptom-content h5 {
+      color: #203f69;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .symptom-content p {
+      color: #718096;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* RISK FACTORS */
+    .risk-section {
+      background: linear-gradient(120deg, #edf5ff, #ffffff);
+    }
+
+    .risk-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .risk-list li {
+      background: white;
+      padding: 15px 20px;
+      margin-bottom: 12px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(50, 90, 130, 0.06);
+      color: #53647b;
+      font-weight: 500;
+    }
+
+    .risk-list li::before {
+      content: "✓";
+      color: #1769ff;
+      font-weight: bold;
+      margin-right: 12px;
+    }
+
+    /* TECHNOLOGY */
+    .technology-box {
+      padding: 55px;
+      border-radius: 25px;
+      color: white;
+      background: linear-gradient(120deg, #123466, #237edc);
+    }
+
+    .technology-box h2 {
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .technology-box p {
+      color: #dbeaff;
+      line-height: 1.9;
+    }
+
+    .technology-icon {
+      font-size: 95px;
+    }
+
+    /* EMERGENCY NOTICE */
+    .notice {
+      padding: 25px;
+      border-left: 5px solid #1769ff;
+      border-radius: 10px;
+      background: #eaf3ff;
+      color: #38577d;
+      line-height: 1.8;
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 40px 0;
+      text-align: center;
+      background: #102746;
+      color: #d5e4f7;
+    }
+
+    .footer h5 {
+      color: white;
+      font-weight: 700;
+    }
+
+    .footer p {
+      font-size: 14px;
+      margin: 8px 0;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 120px 0 70px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero-image {
+        height: 280px;
+        margin-top: 35px;
+      }
+
+      .section {
+        padding: 55px 0;
+      }
+
+      .section-title {
+        font-size: 27px;
+      }
+
+      .technology-box {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+
+      <a class="navbar-brand" href="/">
+        🧠 Brain Stroke Prediction
+      </a>
+
+      <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="/aboutus">About Us</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/abstract">Abstract</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/contactus">Contact Us</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container">
+      <div class="row align-items-center g-5">
+
+        <div class="col-lg-6">
+
+          <div class="hero-badge">
+            ❤️ Smart Healthcare Technology
+          </div>
+
+          <h1>
+            Understanding<br>
+            <span>Brain Stroke</span><br>
+            and Prevention
+          </h1>
+
+          <p>
+            Learn about brain stroke, its causes, warning signs,
+            risk factors, and the role of machine learning in
+            healthcare awareness and risk assessment.
+          </p>
+
+        </div>
+
+        <div class="col-lg-6">
+
+          <img class="hero-image"
+            src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=900&q=80"
+            alt="Brain health">
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- INTRODUCTION -->
+  <section class="section">
+    <div class="container">
+
+      <h2 class="section-title">
+        Importance of Stroke Awareness
+      </h2>
+
+      <p class="section-subtitle">
+        Understanding stroke symptoms and risk factors can help
+        people recognize warning signs and seek medical attention
+        quickly.
+      </p>
+
+      <div class="row align-items-center g-5">
+
+        <div class="col-lg-6">
+
+          <img class="info-image"
+            src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80"
+            alt="Medical healthcare">
+
+        </div>
+
+        <div class="col-lg-6">
+
+          <h3 class="content-heading">
+            What Is a Brain Stroke?
+          </h3>
+
+          <p class="content-text">
+            A brain stroke occurs when the blood supply to part
+            of the brain becomes blocked or when a blood vessel
+            in the brain breaks.
+          </p>
+
+          <p class="content-text">
+            Brain cells require oxygen and nutrients from blood
+            to function correctly. When blood flow is interrupted,
+            brain cells can become damaged.
+          </p>
+
+          <p class="content-text">
+            Early medical treatment is important because a stroke
+            can cause serious and long-term health complications.
+          </p>
+
+          <p class="content-text">
+            Our project uses machine learning to analyze selected
+            health information and provide a computer-generated
+            stroke risk prediction.
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- STROKE TYPES -->
+  <section class="section bg-white">
+    <div class="container">
+
+      <h2 class="section-title">
+        Types of Brain Stroke
+      </h2>
+
+      <p class="section-subtitle">
+        Stroke can happen in different ways. The major types
+        include ischemic stroke and hemorrhagic stroke.
+      </p>
+
+      <div class="row g-4">
+
+        <div class="col-md-6">
+          <div class="type-card">
+
+            <div class="card-icon">🩸</div>
+
+            <h4>Ischemic Stroke</h4>
+
+            <p>
+              An ischemic stroke occurs when a blood clot or another
+              blockage reduces blood flow to the brain. It is the
+              most common type of stroke.
+            </p>
+
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="type-card">
+
+            <div class="card-icon">🧠</div>
+
+            <h4>Hemorrhagic Stroke</h4>
+
+            <p>
+              A hemorrhagic stroke occurs when a blood vessel in
+              the brain breaks and causes bleeding in or around
+              the brain.
+            </p>
+
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="type-card">
+
+            <div class="card-icon">🔴</div>
+
+            <h4>Thrombotic Stroke</h4>
+
+            <p>
+              A thrombotic stroke happens when a blood clot develops
+              inside an artery that supplies blood to the brain.
+            </p>
+
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="type-card">
+
+            <div class="card-icon">🩺</div>
+
+            <h4>Embolic Stroke</h4>
+
+            <p>
+              An embolic stroke happens when a clot or other material
+              travels through the bloodstream and blocks an artery
+              supplying the brain.
+            </p>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- WARNING SIGNS -->
+  <section class="section">
+    <div class="container">
+
+      <h2 class="section-title">
+        Common Warning Signs
+      </h2>
+
+      <p class="section-subtitle">
+        Stroke symptoms can appear suddenly. Seek emergency
+        medical help immediately if stroke symptoms occur.
+      </p>
+
+      <div class="row g-4">
+
+        <!-- HEADACHE -->
+        <div class="col-md-6 col-lg-4">
+          <div class="symptom-card">
+
+            <img
+              src="https://images.unsplash.com/photo-1541199249251-f713e6145474?auto=format&fit=crop&w=800&q=80"
+              alt="Headache">
+
+            <div class="symptom-content">
+
+              <h5>Sudden Severe Headache</h5>
+
+              <p>
+                A sudden and severe headache may occur,
+                particularly with other warning signs.
+              </p>
+
+            </div>
+          </div>
+        </div>
+
+
+        <!-- VISION -->
+        <div class="col-md-6 col-lg-4">
+          <div class="symptom-card">
+
+            <img
+              src="https://images.unsplash.com/photo-1530099486328-e021101a494a?auto=format&fit=crop&w=800&q=80"
+              alt="Vision problems">
+
+            <div class="symptom-content">
+
+              <h5>Vision Problems</h5>
+
+              <p>
+                Sudden difficulty seeing in one or both eyes
+                may be a warning sign of stroke.
+              </p>
+
+            </div>
+          </div>
+        </div>
+
+
+        <!-- SWALLOWING -->
+        <div class="col-md-6 col-lg-4">
+          <div class="symptom-card">
+
+            <img
+              src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=800&q=80"
+              alt="Medical care">
+
+            <div class="symptom-content">
+
+              <h5>Difficulty Swallowing</h5>
+
+              <p>
+                Some people may experience difficulty swallowing
+                or problems controlling their mouth muscles.
+              </p>
+
+            </div>
+          </div>
+        </div>
+
+
+        <!-- FACE DROOPING -->
+        <div class="col-md-6 col-lg-4">
+          <div class="symptom-card">
+
+            <img
+              src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80"
+              alt="Medical examination">
+
+            <div class="symptom-content">
+
+              <h5>Face Drooping</h5>
+
+              <p>
+                One side of the face may droop or feel numb.
+                Uneven facial movement can be a warning sign.
+              </p>
+
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ARM WEAKNESS -->
+        <div class="col-md-6 col-lg-4">
+          <div class="symptom-card">
+
+            <img
+              src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=800&q=80"
+              alt="Healthcare examination">
+
+            <div class="symptom-content">
+
+              <h5>Arm Weakness</h5>
+
+              <p>
+                Sudden weakness or numbness in one arm or one
+                side of the body can be a warning sign.
+              </p>
+
+            </div>
+          </div>
+        </div>
+
+
+        <!-- SPEECH -->
+        <div class="col-md-6 col-lg-4">
+          <div class="symptom-card">
+
+            <img
+              src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80"
+              alt="Medical professional">
+
+            <div class="symptom-content">
+
+              <h5>Speech Difficulty</h5>
+
+              <p>
+                Sudden difficulty speaking, understanding speech,
+                or communicating may indicate a stroke.
+              </p>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- RISK FACTORS -->
+  <section class="section risk-section">
+    <div class="container">
+
+      <h2 class="section-title">
+        Stroke Risk Factors
+      </h2>
+
+      <p class="section-subtitle">
+        Several health and lifestyle factors can increase the
+        risk of stroke. Regular health checkups are important.
+      </p>
+
+      <div class="row g-4">
+
+        <div class="col-md-6">
+
+          <ul class="risk-list">
+            <li>High blood pressure</li>
+            <li>Diabetes</li>
+            <li>High cholesterol</li>
+            <li>Smoking</li>
+            <li>Excess body weight</li>
+          </ul>
+
+        </div>
+
+        <div class="col-md-6">
+
+          <ul class="risk-list">
+            <li>Physical inactivity</li>
+            <li>Heart disease</li>
+            <li>Family history of stroke</li>
+            <li>Excessive alcohol consumption</li>
+            <li>Increasing age</li>
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PREVENTION -->
+  <section class="section bg-white">
+    <div class="container">
+
+      <h2 class="section-title">
+        Stroke Prevention
+      </h2>
+
+      <p class="section-subtitle">
+        Healthy lifestyle habits and regular medical checkups
+        can help manage several stroke risk factors.
+      </p>
+
+      <div class="row g-4">
+
+        <div class="col-md-4">
+          <div class="type-card text-center">
+
+            <div class="card-icon mx-auto">🥗</div>
+
+            <h4>Healthy Diet</h4>
+
+            <p>
+              Eat a balanced diet with vegetables, fruits,
+              whole grains, and appropriate portions.
+            </p>
+
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="type-card text-center">
+
+            <div class="card-icon mx-auto">🏃</div>
+
+            <h4>Regular Exercise</h4>
+
+            <p>
+              Maintain regular physical activity according
+              to your health condition and doctor's advice.
+            </p>
+
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="type-card text-center">
+
+            <div class="card-icon mx-auto">🩺</div>
+
+            <h4>Health Checkups</h4>
+
+            <p>
+              Monitor blood pressure, blood sugar, cholesterol,
+              and other important health factors.
+            </p>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- MACHINE LEARNING -->
+  <section class="section">
+    <div class="container">
+
+      <div class="technology-box">
+
+        <div class="row align-items-center">
+
+          <div class="col-lg-8">
+
+            <h2>
+              Machine Learning in Healthcare
+            </h2>
+
+            <p>
+              Machine learning can analyze patterns in health-related
+              data and support risk assessment. Our Brain Stroke
+              Prediction project uses a trained machine learning model
+              to generate a prediction based on the information
+              entered by the user.
+            </p>
+
+            <p>
+              This project is designed for educational and awareness
+              purposes. It does not replace a doctor, medical testing,
+              or professional medical advice.
+            </p>
+
+          </div>
+
+          <div class="col-lg-4 text-center">
+
+            <div class="technology-icon">🤖</div>
+
+            <h5>Smart Prediction System</h5>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- MEDICAL NOTICE -->
+  <section class="section pt-0">
+    <div class="container">
+
+      <div class="notice">
+
+        <strong>Important Medical Notice:</strong>
+
+        This website provides educational information and
+        computer-generated predictions. If you notice sudden
+        stroke symptoms, contact emergency medical services
+        immediately. Do not delay medical treatment.
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <div class="container">
+
+      <h5>🧠 Brain Stroke Prediction</h5>
+
+      <p>
+        Machine Learning Based Healthcare Awareness System
+      </p>
+
+      <p>
+        © 2026 Brain Stroke Prediction. All Rights Reserved.
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+
+</body>
+
+</html>

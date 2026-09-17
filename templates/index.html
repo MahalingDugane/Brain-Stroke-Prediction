@@ -1,0 +1,1130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Brain Stroke Prediction | Home</title>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      color: #102a56;
+      background: #f5f9ff;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: #ffffff;
+      padding: 18px 0;
+      box-shadow: 0 3px 20px rgba(22, 72, 130, 0.08);
+    }
+
+    .navbar-brand {
+      font-size: 23px;
+      font-weight: 800;
+      color: #102a56 !important;
+    }
+
+    .navbar-brand i {
+      color: #147cff;
+      margin-right: 8px;
+    }
+
+    .nav-link {
+      color: #243b63 !important;
+      font-size: 13px;
+      font-weight: 600;
+      margin-left: 22px;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover {
+      color: #147cff !important;
+    }
+
+    .signup-link {
+      background: #147cff;
+      color: white !important;
+      border-radius: 25px;
+      padding: 10px 20px !important;
+    }
+
+    /* HERO BANNER */
+/* HERO BANNER */
+.hero {
+  min-height: 620px;
+  padding: 150px 0 90px;
+  position: relative;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 34, 75, 0.78) 0%,
+      rgba(8, 67, 130, 0.55) 45%,
+      rgba(8, 67, 130, 0.15) 100%
+    ),
+    url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=2000&q=85");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+    .hero-content {
+      color: white;
+      max-width: 650px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      padding: 9px 18px;
+      border: 1px solid rgba(255,255,255,0.4);
+      background: rgba(255,255,255,0.12);
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      line-height: 1.2;
+      font-weight: 800;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: #65c5ff;
+    }
+
+    .hero p {
+      font-size: 16px;
+      line-height: 1.9;
+      color: #e3efff;
+      margin-bottom: 30px;
+    }
+
+    .btn-main {
+      background: #1685ff;
+      color: white;
+      padding: 15px 27px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-block;
+      margin-right: 10px;
+      transition: 0.3s;
+    }
+
+    .btn-main:hover {
+      background: #005ed0;
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      border: 2px solid white;
+      color: white;
+      padding: 13px 27px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: #102a56;
+    }
+
+    /* HIGHLIGHT CARDS */
+    .highlight-section {
+      margin-top: -45px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .highlight-card {
+      background: white;
+      border-radius: 16px;
+      padding: 25px 18px;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(28, 83, 145, 0.12);
+      height: 100%;
+    }
+
+    .highlight-card i {
+      font-size: 28px;
+      color: #147cff;
+      margin-bottom: 12px;
+    }
+
+    .highlight-card h5 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .highlight-card p {
+      font-size: 12px;
+      color: #70809b;
+      margin: 0;
+    }
+
+    /* SECTION */
+    .section {
+      padding: 90px 0;
+    }
+
+    .section-label {
+      color: #147cff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 35px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .section-description {
+      color: #71819b;
+      font-size: 15px;
+      line-height: 1.8;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    /* FEATURES */
+    .feature-card {
+      background: white;
+      border: 1px solid #e4efff;
+      border-radius: 18px;
+      padding: 32px 25px;
+      height: 100%;
+      transition: 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 35px rgba(20, 124, 255, 0.13);
+    }
+
+    .feature-icon {
+      width: 65px;
+      height: 65px;
+      border-radius: 18px;
+      background: #eaf4ff;
+      color: #147cff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 27px;
+      margin-bottom: 22px;
+    }
+
+    .feature-card h5 {
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      color: #71819b;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* HOW IT WORKS */
+    .steps-section {
+      background: #edf6ff;
+    }
+
+    .step-card {
+      text-align: center;
+      padding: 25px;
+    }
+
+    .step-number {
+      width: 65px;
+      height: 65px;
+      background: linear-gradient(135deg, #147cff, #65c5ff);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 800;
+      margin: 0 auto 20px;
+    }
+
+    .step-card h5 {
+      font-weight: 700;
+    }
+
+    .step-card p {
+      color: #71819b;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 75px 0;
+    }
+
+    .cta-box {
+      background: linear-gradient(120deg, #073b83, #1685ff);
+      color: white;
+      border-radius: 25px;
+      padding: 55px 40px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(20, 124, 255, 0.2);
+    }
+
+    .cta-box h2 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .cta-box p {
+      color: #e2efff;
+      margin-bottom: 28px;
+    }
+
+    .cta-button {
+      background: white;
+      color: #0754ad;
+      padding: 14px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-block;
+    }
+
+    .cta-button:hover {
+      background: #eaf4ff;
+      color: #0754ad;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #071f43;
+      color: white;
+      padding: 55px 0 20px;
+    }
+
+    .footer-brand {
+      font-size: 21px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .footer-brand i {
+      color: #65c5ff;
+      margin-right: 8px;
+    }
+
+    footer p {
+      color: #b8c9e1;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    footer h6 {
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: #b8c9e1;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .social-icons a {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background: #173b68;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      background: #147cff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #244264;
+      margin-top: 35px;
+      padding-top: 20px;
+      text-align: center;
+    }
+
+    .footer-bottom p {
+      margin: 0;
+      font-size: 12px;
+    }
+
+    
+/* ========================================
+   PREMIUM MOBILE RESPONSIVE DESIGN
+======================================== */
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+/* Prevent horizontal scrolling */
+body {
+  overflow-x: hidden;
+}
+
+/* Navbar improvement */
+.navbar {
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler {
+  border: 1px solid #147cff;
+  padding: 8px 12px;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(20, 124, 255, 0.15);
+}
+
+.navbar-toggler-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Hero improvement */
+.hero {
+  display: flex;
+  align-items: center;
+  min-height: 650px;
+}
+
+.hero-content {
+  animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card hover effect */
+.highlight-card,
+.feature-card,
+.step-card {
+  transition: all 0.3s ease;
+}
+
+.highlight-card:hover,
+.feature-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Tablet responsive */
+@media (max-width: 991px) {
+
+  .navbar {
+    padding: 12px 20px;
+  }
+
+  .navbar-brand {
+    font-size: 19px;
+  }
+
+  .navbar-collapse {
+    background: white;
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(20, 80, 150, 0.10);
+  }
+
+  .nav-link {
+    margin-left: 0;
+    padding: 12px 15px !important;
+    border-radius: 8px;
+  }
+
+  .nav-link:hover {
+    background: #edf6ff;
+  }
+
+  .signup-link {
+    display: inline-block;
+    margin-top: 5px;
+  }
+
+  .hero {
+    min-height: 600px;
+    padding: 150px 25px 100px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .highlight-section {
+    margin-top: -25px;
+  }
+
+  .section {
+    padding: 65px 20px;
+  }
+
+  .cta-section {
+    padding: 50px 20px;
+  }
+
+  .cta-box {
+    padding: 45px 25px;
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 576px) {
+
+  /* Navbar */
+  .navbar {
+    padding: 12px 15px;
+  }
+
+  .navbar-brand {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .navbar-brand i {
+    margin-right: 4px;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: auto;
+    padding: 125px 20px 85px;
+    background-position: center;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-tag {
+    font-size: 9px;
+    letter-spacing: 0.7px;
+    padding: 8px 12px;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+
+  .hero p {
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+  }
+
+  .btn-main,
+  .btn-outline {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 13px 20px;
+    font-size: 13px;
+  }
+
+  /* Highlight cards */
+  .highlight-section {
+    margin-top: -20px;
+    padding: 0 15px;
+  }
+
+  .highlight-card {
+    padding: 25px 18px;
+    border-radius: 18px;
+  }
+
+  .highlight-card h5 {
+    font-size: 15px;
+  }
+
+  .highlight-card p {
+    font-size: 12px;
+  }
+
+  /* Sections */
+  .section {
+    padding: 55px 15px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .section-title {
+    font-size: 25px;
+    line-height: 1.4;
+  }
+
+  .section-description {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  /* Feature cards */
+  .feature-card {
+    padding: 28px 22px;
+    border-radius: 18px;
+  }
+
+  .feature-icon {
+    width: 58px;
+    height: 58px;
+    font-size: 23px;
+  }
+
+  .feature-card h5 {
+    font-size: 17px;
+  }
+
+  .feature-card p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  /* Steps */
+  .steps-section {
+    padding: 55px 15px;
+  }
+
+  .step-card {
+    padding: 20px 15px;
+  }
+
+  .step-number {
+    width: 58px;
+    height: 58px;
+    font-size: 21px;
+  }
+
+  .step-card h5 {
+    font-size: 17px;
+  }
+
+  .step-card p {
+    font-size: 13px;
+  }
+
+  /* CTA */
+  .cta-section {
+    padding: 35px 15px;
+  }
+
+  .cta-box {
+    padding: 40px 20px;
+    border-radius: 20px;
+  }
+
+  .cta-box h2 {
+    font-size: 24px;
+    line-height: 1.4;
+  }
+
+  .cta-box p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .cta-button {
+    width: 100%;
+    padding: 13px 20px;
+    font-size: 13px;
+  }
+
+  /* Footer */
+  footer {
+    padding: 40px 20px 20px;
+    text-align: center;
+  }
+
+  .footer-brand {
+    font-size: 18px;
+  }
+
+  footer p {
+    font-size: 12px;
+  }
+
+  footer h6 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .footer-links li {
+    margin-bottom: 10px;
+  }
+
+  .social-icons {
+    margin-top: 20px !important;
+  }
+
+  .footer-bottom {
+    margin-top: 25px;
+  }
+
+  .footer-bottom p {
+    font-size: 10px;
+    line-height: 1.8;
+  }
+}
+
+/* Extra small mobile screens */
+@media (max-width: 360px) {
+
+  .navbar-brand {
+    font-size: 14px;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .hero p {
+    font-size: 12px;
+  }
+
+  .hero-tag {
+    font-size: 8px;
+  }
+
+  .section-title {
+    font-size: 23px;
+  }
+
+  .cta-box h2 {
+    font-size: 21px;
+  }
+}
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+
+      <a class="navbar-brand" href="/">
+        <i class="fa-solid fa-brain"></i>
+        Brain Stroke Prediction
+      </a>
+
+      <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+
+          <li class="nav-item">
+            <a class="nav-link" href="/">HOME</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/aboutus">ABOUT US</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/abstract">ABSTRACT</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/contactus">CONTACT US</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/register">SIGN UP</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link signup-link" href="/login">LOGIN</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO BANNER -->
+  <section class="hero">
+
+    <div class="container">
+      <div class="hero-content">
+
+        <div class="hero-tag">
+          <i class="fa-solid fa-heart-pulse"></i>
+          SMART HEALTH MONITORING
+        </div>
+
+        <h1>
+          Brain Stroke Prediction:
+          <span>A Critical Health Concern</span>
+        </h1>
+
+        <p>
+          Understand potential stroke risk factors through our
+          machine-learning-based prediction system. Enter your health
+          information and explore the prediction results.
+        </p>
+
+        <a href="/login" class="btn-main">
+          Start Prediction
+          <i class="fa-solid fa-arrow-right ms-2"></i>
+        </a>
+
+        <a href="/aboutus" class="btn-outline">
+          Learn More
+        </a>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section class="highlight-section">
+    <div class="container">
+
+      <div class="row g-4">
+
+        <div class="col-lg-3 col-md-6">
+          <div class="highlight-card">
+            <i class="fa-solid fa-brain"></i>
+            <h5>Early Awareness</h5>
+            <p>Understand important health risk factors.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="highlight-card">
+            <i class="fa-solid fa-shield-heart"></i>
+            <h5>Health Focused</h5>
+            <p>Explore health information in one place.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="highlight-card">
+            <i class="fa-solid fa-chart-line"></i>
+            <h5>Risk Analysis</h5>
+            <p>Analyze selected health-related factors.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="highlight-card">
+            <i class="fa-solid fa-user-shield"></i>
+            <h5>User Friendly</h5>
+            <p>Simple and easy-to-use prediction interface.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section">
+    <div class="container">
+
+      <div class="text-center mb-5">
+        <div class="section-label">OUR FEATURES</div>
+
+        <h2 class="section-title">
+          Why Use Our System?
+        </h2>
+
+        <p class="section-description">
+          Our project provides a simple platform for exploring stroke
+          risk prediction using machine learning.
+        </p>
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-lg-3 col-md-6">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <h5>Machine Learning</h5>
+            <p>
+              Uses a trained machine learning model to generate
+              prediction results from entered information.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fa-solid fa-lock"></i>
+            </div>
+            <h5>Secure Login</h5>
+            <p>
+              Users can register and log in before accessing the
+              prediction system.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fa-solid fa-chart-simple"></i>
+            </div>
+            <h5>Risk Factors</h5>
+            <p>
+              Enter details such as age, glucose level, and other
+              health-related information.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fa-solid fa-display"></i>
+            </div>
+            <h5>Simple Interface</h5>
+            <p>
+              A clean and easy-to-understand interface for users
+              interacting with the application.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section steps-section">
+    <div class="container">
+
+      <div class="text-center mb-5">
+        <div class="section-label">HOW IT WORKS</div>
+
+        <h2 class="section-title">
+          Simple 3-Step Process
+        </h2>
+
+        <p class="section-description">
+          Follow these steps to use the brain stroke prediction system.
+        </p>
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-lg-4">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h5>Create an Account</h5>
+            <p>
+              Register your account using the sign-up page.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h5>Enter Health Details</h5>
+            <p>
+              Provide the required information on the prediction page.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h5>View Prediction</h5>
+            <p>
+              Submit the form and view the model prediction result.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-section">
+    <div class="container">
+
+      <div class="cta-box">
+
+        <h2>
+          Take the First Step Toward Better Health
+        </h2>
+
+        <p>
+          Explore our brain stroke prediction project today.
+        </p>
+
+        <a href="/login" class="cta-button">
+          Get Started
+          <i class="fa-solid fa-arrow-right ms-2"></i>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="container">
+
+      <div class="row g-5">
+
+        <div class="col-lg-4">
+          <div class="footer-brand">
+            <i class="fa-solid fa-brain"></i>
+            Brain Stroke Prediction
+          </div>
+
+          <p>
+            A machine-learning-based student project designed for
+            brain stroke risk awareness and educational purposes.
+          </p>
+
+          <div class="social-icons mt-4">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4">
+          <h6>Quick Links</h6>
+
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/aboutus">About Us</a></li>
+            <li><a href="/abstract">Abstract</a></li>
+            <li><a href="/contactus">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <h6>Account</h6>
+
+          <ul class="footer-links">
+            <li><a href="/register">Create Account</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/Model">Prediction Model</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <h6>Important Note</h6>
+
+          <p>
+            This project is intended for educational purposes.
+            It is not a replacement for professional medical advice,
+            diagnosis, or treatment.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          © 2026 Brain Stroke Prediction | Student Project
+        </p>
+      </div>
+
+    </div>
+
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
