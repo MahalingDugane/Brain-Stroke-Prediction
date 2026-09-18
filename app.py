@@ -8,10 +8,10 @@ import pandas as pd
 from flask import send_from_directory
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, instance_path="/tmp/instance")
 
 model = pickle.load(open('brainstroke_model.pkl', 'rb'))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mydb.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/mydb.db'
 app.config['SECRET_KEY'] = 'thisissecret'
 db = SQLAlchemy(app)
 login_manager = LoginManager()
