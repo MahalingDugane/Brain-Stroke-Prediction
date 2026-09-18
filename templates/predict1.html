@@ -1,11 +1,15 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Brain Stroke Prediction</title>
+    <title>Brain Stroke Prediction Result</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <style>
         * {
@@ -15,156 +19,383 @@
         }
 
         body {
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
             min-height: 100vh;
-            background: linear-gradient(
-                135deg,
-                #667eea,
-                #764ba2
-            );
-            background-image:
-                linear-gradient(
-                    rgba(102, 126, 234, 0.85),
-                    rgba(118, 75, 162, 0.9)
-                ),
-                url("/static/bg.png");
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            background: #080d25;
+            overflow-x: hidden;
         }
 
-        /* Navigation Bar */
+        body::before {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            top: -180px;
+            left: -150px;
+            background: #613dff;
+            filter: blur(160px);
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 450px;
+            height: 450px;
+            right: -150px;
+            bottom: -150px;
+            background: #00d9ff;
+            filter: blur(170px);
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        /* NAVIGATION */
+
         nav {
-            background: white;
-            padding: 20px 6%;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        nav ul {
+            height: 95px;
+            padding: 0 7%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            list-style: none;
-            gap: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(8, 13, 37, 0.75);
+            backdrop-filter: blur(20px);
         }
 
-        nav a {
+        .logo {
+            color: white;
             text-decoration: none;
-            color: #222;
-            font-size: 18px;
-            font-weight: 600;
-            transition: color 0.3s ease;
+            font-size: 25px;
+            font-weight: 800;
         }
 
-        nav a:hover {
-            color: #667eea;
-        }
-
-        .brand {
-            font-size: 22px;
-            font-weight: bold;
-            color: #667eea;
+        .logo span {
+            color: #65eaff;
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 35px;
         }
 
-        /* Result Section */
-        .result-container {
-            min-height: calc(100vh - 85px);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        .nav-links a {
+            color: #dce3ff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #65eaff;
+        }
+
+        /* MAIN LAYOUT */
+
+        .main-container {
+            width: 90%;
+            max-width: 1400px;
+            min-height: calc(100vh - 95px);
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
             align-items: center;
-            text-align: center;
-            padding: 40px 20px;
+            gap: 70px;
+            padding: 65px 0;
         }
 
-        .result-card {
-            background: rgba(255, 255, 255, 0.96);
-            width: 100%;
-            max-width: 850px;
-            padding: 45px 35px;
-            border-radius: 25px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        /* LEFT CONTENT */
+
+        .left-content {
+            animation: fadeLeft 1s ease;
         }
 
-        .result-title {
-            color: #667eea;
-            font-size: 38px;
+        .tag {
+            display: inline-block;
+            padding: 10px 18px;
+            border-radius: 30px;
+            background: rgba(55, 231, 190, 0.12);
+            border: 1px solid rgba(55, 231, 190, 0.4);
+            color: #55efc4;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
             margin-bottom: 25px;
         }
 
-        .prediction {
-            color: #333;
-            font-size: 28px;
-            line-height: 1.5;
+        .left-content h1 {
+            font-size: clamp(40px, 4vw, 68px);
+            line-height: 1.15;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .left-content h1 span {
+            background: linear-gradient(90deg, #61edff, #9280ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            color: #b8c3e6;
+            font-size: 17px;
+            line-height: 1.9;
+            max-width: 520px;
+            margin-bottom: 35px;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 17px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            color: #e2e8ff;
+            font-size: 15px;
+        }
+
+        .feature-icon {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(101, 234, 255, 0.15);
+            color: #65eaff;
+        }
+
+        /* RESULT PANEL */
+
+        .result-panel {
+            padding: 45px;
+            border-radius: 35px;
+            background: linear-gradient(
+                145deg,
+                rgba(255, 255, 255, 0.15),
+                rgba(255, 255, 255, 0.045)
+            );
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 35px 90px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(25px);
+            text-align: center;
+            animation: fadeRight 1s ease;
+        }
+
+        .panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 35px;
+        }
+
+        .panel-header h2 {
+            font-size: 23px;
+            font-weight: 700;
+        }
+
+        .status-dot {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #55efc4;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #55efc4;
+            box-shadow: 0 0 15px #55efc4;
+        }
+
+        .medical-icon {
+            width: 85px;
+            height: 85px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #55eaff, #7767ff);
+            font-size: 42px;
+            box-shadow: 0 15px 35px rgba(80, 218, 255, 0.25);
+        }
+
+        .result-title {
+            color: #b8c3e6;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .prediction-box {
+            padding: 25px 20px;
+            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(101, 234, 255, 0.35);
             margin-bottom: 30px;
+        }
+
+        .prediction-box h3 {
+            color: #65efff;
+            font-size: 25px;
+            line-height: 1.5;
+            font-weight: 800;
             overflow-wrap: anywhere;
+        }
+
+        /* IMAGE */
+
+        .image-wrapper {
+            width: 100%;
+            height: 390px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            margin-bottom: 30px;
+            overflow: hidden;
         }
 
         .result-image {
             width: 100%;
-            max-width: 450px;
-            height: auto;
-            border-radius: 18px;
-            display: block;
-            margin: 0 auto;
+            height: 100%;
+            object-fit: contain;
+            padding: 15px;
         }
 
-        .back-button {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 13px 30px;
-            background: #667eea;
+        /* BUTTON */
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            padding: 17px 25px;
+            border-radius: 15px;
+            background: linear-gradient(90deg, #43dff5, #7666ff);
             color: white;
             text-decoration: none;
-            border-radius: 30px;
-            font-size: 18px;
-            font-weight: bold;
-            transition: all 0.3s ease;
+            font-size: 16px;
+            font-weight: 700;
+            box-shadow: 0 12px 30px rgba(72, 220, 255, 0.2);
+            transition: 0.3s;
         }
 
-        .back-button:hover {
-            background: #4c63d2;
-            transform: translateY(-2px);
+        .home-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(72, 220, 255, 0.4);
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            nav {
-                padding: 18px 20px;
+        /* ANIMATIONS */
+
+        @keyframes fadeLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
             }
 
-            nav ul {
-                flex-direction: column;
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
             }
 
-            .nav-links {
-                gap: 20px;
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 950px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                max-width: 700px;
+                gap: 45px;
             }
 
-            nav a {
-                font-size: 16px;
-            }
-
-            .brand {
-                font-size: 20px;
+            .left-content {
                 text-align: center;
             }
 
-            .result-card {
-                padding: 30px 20px;
+            .description {
+                margin-left: auto;
+                margin-right: auto;
             }
 
-            .result-title {
-                font-size: 28px;
+            .feature-list {
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                height: auto;
+                padding: 22px 5%;
+                flex-direction: column;
+                gap: 18px;
             }
 
-            .prediction {
-                font-size: 21px;
+            .logo {
+                font-size: 20px;
+            }
+
+            .nav-links {
+                gap: 22px;
+            }
+
+            .nav-links a {
+                font-size: 14px;
+            }
+
+            .main-container {
+                width: 92%;
+                padding: 40px 0;
+            }
+
+            .left-content h1 {
+                font-size: 38px;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+
+            .result-panel {
+                padding: 25px 18px;
+                border-radius: 25px;
+            }
+
+            .panel-header h2 {
+                font-size: 18px;
+            }
+
+            .prediction-box h3 {
+                font-size: 20px;
+            }
+
+            .image-wrapper {
+                height: 300px;
             }
         }
     </style>
@@ -172,51 +403,93 @@
 
 <body>
 
-    <!-- Navigation -->
     <nav>
-        <ul>
-            <li>
-                <a href="/" class="brand">
-                    Brain Stroke Prediction
-                </a>
-            </li>
+        <a href="#" class="logo">🧠 Brain <span>Stroke</span></a>
 
-            <div class="nav-links">
-                <li>
-                    <a href="/stroke">Prediction</a>
-                </li>
-
-                <li>
-                    <a href="/">Home</a>
-                </li>
-            </div>
-        </ul>
+        <div class="nav-links">
+            <a href="/stroke">Prediction</a>
+            <a href="/">Home</a>
+        </div>
     </nav>
 
-    <!-- Prediction Result -->
-    <main class="result-container">
-        <div class="result-card">
+    <main class="main-container">
 
-            <h1 class="result-title">
-                Prediction Result
+        <section class="left-content">
+
+            <div class="tag">● AI HEALTH ANALYSIS</div>
+
+            <h1>
+                Your Health.<br>
+                Our <span>Intelligence.</span>
             </h1>
 
-            <div class="prediction">
-                <strong>{{ prediction_text }}</strong>
+            <p class="description">
+                Your prediction has been processed by our machine learning
+                system. Review the result below and consult a healthcare
+                professional for medical guidance.
+            </p>
+
+            <div class="feature-list">
+
+                <div class="feature">
+                    <span class="feature-icon">✓</span>
+                    Prediction analysis completed
+                </div>
+
+                <div class="feature">
+                    <span class="feature-icon">✓</span>
+                    Machine learning based result
+                </div>
+
+                <div class="feature">
+                    <span class="feature-icon">✓</span>
+                    Simple and easy-to-understand output
+                </div>
+
             </div>
 
-            <img
-                src="/static/assets/img/happy.gif"
-                alt="Prediction result illustration"
-                class="result-image"
-            >
+        </section>
 
-            <a href="/stroke" class="back-button">
-                Check Again
+        <section class="result-panel">
+
+            <div class="panel-header">
+                <h2>Prediction Summary</h2>
+
+                <div class="status-dot">
+                    <span class="dot"></span>
+                    Completed
+                </div>
+            </div>
+
+            <div class="medical-icon">🩺</div>
+
+            <p class="result-title">
+                YOUR PREDICTION RESULT
+            </p>
+
+            <div class="prediction-box">
+                <h3>
+                    <strong>{{ prediction_text }}</strong>
+                </h3>
+            </div>
+
+            <div class="image-wrapper">
+
+                <img
+                    src="{{ url_for('static', filename='assets/img/happy.gif') }}"
+                    alt="Brain Stroke Prediction Result"
+                    class="result-image">
+
+            </div>
+
+            <a href="/stroke" class="home-button">
+                ↻ &nbsp; Check Again
             </a>
 
-        </div>
+        </section>
+
     </main>
 
 </body>
+
 </html>

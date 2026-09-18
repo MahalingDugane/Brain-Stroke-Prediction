@@ -6,429 +6,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Brain Stroke Prediction Result</title>
-
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+    <title>Autism Prediction</title>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Poppins', sans-serif;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #eef5ff, #dceaff);
-            color: #163c68;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: rgb(76, 76, 194);
+            background-size: 180%;
+            margin: 0px;
+            padding: 0px;
         }
 
-        /* Navigation */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 7%;
-            background: rgba(255, 255, 255, 0.96);
-            box-shadow: 0 4px 20px rgba(22, 60, 104, 0.08);
+        li {
+            display: inline-block;
         }
 
-        .logo {
-            color: #163c68;
+        a {
             text-decoration: none;
-            font-size: 21px;
-            font-weight: 800;
+            font-size: 20px;
+            color: black;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 25px;
-        }
-
-        .nav-links a {
-            color: #526d8c;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #167ee8;
-        }
-
-        /* Main section */
-        .main-section {
-            min-height: calc(100vh - 140px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 55px 20px;
-        }
-
-        .result-card {
-            width: 100%;
-            max-width: 1000px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            background: white;
-            border-radius: 28px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(28, 78, 130, 0.18);
-            animation: slideUp 0.8s ease;
-        }
-
-        /* Left image */
-        .image-section {
-            min-height: 500px;
-            padding: 35px;
-            background: linear-gradient(145deg, #153d68, #286ba4);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .image-section h2 {
-            color: white;
-            font-size: 25px;
-            margin-bottom: 25px;
-        }
-
-        .brain-image {
-            display: block;
-            width: 100%;
-            max-width: 390px;
-            height: 320px;
-            object-fit: cover;
-            border-radius: 20px;
-            border: 5px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .image-caption {
-            color: #dceeff;
-            font-size: 13px;
-            margin-top: 20px;
-            line-height: 1.7;
-        }
-
-        /* Right content */
-        .content-section {
-            padding: 45px 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .status-icon {
-            width: 75px;
-            height: 75px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #fff0f0;
-            border-radius: 50%;
-            font-size: 38px;
-            margin-bottom: 22px;
-        }
-
-        .content-section h1 {
-            color: #153d68;
-            font-size: 30px;
-            font-weight: 800;
-            margin-bottom: 20px;
-        }
-
-        .result-box {
-            padding: 18px 20px;
-            border-radius: 13px;
-            background: #fff2f2;
-            border-left: 5px solid #e05252;
-            color: #b52e38;
-            font-size: 16px;
-            font-weight: 700;
-            line-height: 1.7;
-            margin-bottom: 22px;
-            overflow-wrap: anywhere;
-        }
-
-        .description {
-            color: #6b819b;
-            font-size: 14px;
-            line-height: 1.9;
-            margin-bottom: 22px;
-        }
-
-        .warning-box {
-            background: #fff9e9;
-            border: 1px solid #f5df9b;
-            border-radius: 12px;
-            padding: 16px;
-            color: #795b20;
-            font-size: 12px;
-            line-height: 1.8;
-            margin-bottom: 28px;
-        }
-
-        .warning-box strong {
-            color: #a16d08;
-        }
-
-        /* Buttons */
-        .button-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .btn {
-            text-decoration: none;
-            padding: 13px 22px;
-            border-radius: 30px;
-            font-size: 13px;
-            font-weight: 700;
-            transition: 0.3s;
-            text-align: center;
-        }
-
-        .btn-primary {
-            color: white;
-            background: linear-gradient(135deg, #1689ed, #155bc1);
-        }
-
-        .btn-secondary {
-            color: #1767ad;
-            background: #eaf4ff;
-            border: 1px solid #cce4fa;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(22, 105, 190, 0.2);
-        }
-
-        /* Footer */
-        footer {
-            padding: 20px;
-            text-align: center;
-            color: #71859c;
-            background: white;
-            font-size: 12px;
-        }
-
-        /* Animation */
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Tablet Responsive */
-        @media (max-width: 800px) {
-            .navbar {
-                flex-direction: column;
-                gap: 18px;
-                padding: 20px;
-            }
-
-            .nav-links {
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 15px;
-            }
-
-            .result-card {
-                grid-template-columns: 1fr;
-            }
-
-            .image-section {
-                min-height: auto;
-                padding: 30px 20px;
-            }
-
-            .brain-image {
-                height: 260px;
-            }
-
-            .content-section {
-                padding: 35px 25px;
-            }
-
-            .content-section h1 {
-                font-size: 25px;
-            }
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 18px;
-                text-align: center;
-            }
-
-            .nav-links {
-                flex-direction: column;
-                align-items: center;
-                gap: 12px;
-            }
-
-            .main-section {
-                padding: 25px 12px;
-            }
-
-            .result-card {
-                border-radius: 18px;
-            }
-
-            .image-section {
-                padding: 25px 15px;
-            }
-
-            .image-section h2 {
-                font-size: 21px;
-            }
-
-            .brain-image {
-                height: 220px;
-                border-width: 3px;
-            }
-
-            .content-section {
-                padding: 30px 20px;
-            }
-
-            .status-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 30px;
-            }
-
-            .content-section h1 {
-                font-size: 23px;
-            }
-
-            .result-box {
-                font-size: 14px;
-            }
-
-            .description {
-                font-size: 13px;
-            }
-
-            .button-group {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-
-            footer {
-                font-size: 11px;
-            }
+        h3 {
+            color: burlywood;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <a href="/" class="logo">🧠 Brain Stroke Prediction</a>
+    <nav style="background-color: white; padding: 10px; box-shadow: 5px 10px white;">
 
-        <div class="nav-links">
-            <a href="/">Home</a>
-            <a href="/aboutus">About Us</a>
-            <a href="/abstract">Abstract</a>
-            <a href="/stroke">Prediction</a>
-            <a href="/contactus">Contact Us</a>
-        </div>
+        <ul>
+
+            <li>
+                <a href="#">
+                    Brain Stroke Prediction
+                </a>
+            </li>
+
+            <li>
+                <a href="/stroke" style="margin-left: 1000px;">
+                    Prediction
+                </a>
+            </li>
+
+            <li>
+                <a href="/" style="margin-left: 20px;">
+                    Home
+                </a>
+            </li>
+
+        </ul>
+
     </nav>
 
-    <!-- Result section -->
-    <main class="main-section">
+    <br>
 
-        <div class="result-card">
+    <h3 style="margin-left: 340px; font-size: 45px; color: white;">
 
-            <!-- Image section -->
-            <section class="image-section">
+        <strong>
+            {{ prediction_text }}
+        </strong>
 
-                <h2>Brain Health Analysis</h2>
+    </h3>
 
-                <img
-                    src="{{ url_for('static', filename='assets/img/brain.jpg') }}"
-                    alt="Brain health illustration"
-                    class="brain-image"
-                    loading="eager">
-
-                <p class="image-caption">
-                    Understanding brain health is important.
-                    Consult a qualified healthcare professional
-                    for medical advice.
-                </p>
-
-            </section>
-
-            <!-- Content section -->
-            <section class="content-section">
-
-                <div class="status-icon">
-                    ⚠️
-                </div>
-
-                <h1>Prediction Result</h1>
-
-                <div class="result-box">
-                    {{ prediction_text }}
-                </div>
-
-                <p class="description">
-                    Our machine learning model has analyzed the
-                    information entered into the prediction form.
-                    The result shown above is computer-generated
-                    and should not be considered a confirmed diagnosis.
-                </p>
-
-                <div class="warning-box">
-                    <strong>Important Health Information:</strong><br>
-                    If you experience sudden face drooping, arm weakness,
-                    speech difficulty, sudden vision problems, or a severe
-                    headache, seek emergency medical assistance immediately.
-                    Do not wait for an online prediction.
-                </div>
-
-                <div class="button-group">
-
-                    <a href="/stroke" class="btn btn-primary">
-                        🔄 Try Again
-                    </a>
-
-                    <a href="/" class="btn btn-secondary">
-                        🏠 Back to Home
-                    </a>
-
-                </div>
-
-            </section>
-
-        </div>
-
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        © 2026 Brain Stroke Prediction | Machine Learning Project
-    </footer>
+    <img
+        src="{{ url_for('static', filename='assets/img/brain (1).jpg') }}"
+        width="480px"
+        height="440px"
+        alt="Brain health image"
+        style="margin-left: 500px;">
 
 </body>
 
