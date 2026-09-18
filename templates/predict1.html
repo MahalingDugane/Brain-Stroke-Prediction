@@ -1,48 +1,222 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autism Prediction</title>
+
+    <title>Brain Stroke Prediction</title>
+
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(
+                135deg,
+                #667eea,
+                #764ba2
+            );
+            background-image:
+                linear-gradient(
+                    rgba(102, 126, 234, 0.85),
+                    rgba(118, 75, 162, 0.9)
+                ),
+                url("/static/bg.png");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
 
+        /* Navigation Bar */
+        nav {
+            background: white;
+            padding: 20px 6%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
 
-            background-image: url("static/bg.png"); 
-		  background-size: 180%;
-          margin: 0px;
-          padding: 0px;
-          background-color: rgb(115, 115, 199);
+        nav ul {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            list-style: none;
+            gap: 20px;
+        }
 
-}
-li {
-    display: inline-block;
+        nav a {
+            text-decoration: none;
+            color: #222;
+            font-size: 18px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
 
-}
-a{
-    text-decoration: none;
-    font-size: 20px;
-    color: black;
-}
-h3
-{
-    color: burlywood;
-}
+        nav a:hover {
+            color: #667eea;
+        }
+
+        .brand {
+            font-size: 22px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        /* Result Section */
+        .result-container {
+            min-height: calc(100vh - 85px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .result-card {
+            background: rgba(255, 255, 255, 0.96);
+            width: 100%;
+            max-width: 850px;
+            padding: 45px 35px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .result-title {
+            color: #667eea;
+            font-size: 38px;
+            margin-bottom: 25px;
+        }
+
+        .prediction {
+            color: #333;
+            font-size: 28px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+            overflow-wrap: anywhere;
+        }
+
+        .result-image {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            border-radius: 18px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 13px 30px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #4c63d2;
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 18px 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            nav a {
+                font-size: 16px;
+            }
+
+            .brand {
+                font-size: 20px;
+                text-align: center;
+            }
+
+            .result-card {
+                padding: 30px 20px;
+            }
+
+            .result-title {
+                font-size: 28px;
+            }
+
+            .prediction {
+                font-size: 21px;
+            }
+        }
     </style>
 </head>
+
 <body>
-    <nav style="background-color: white; padding: 10px;box-shadow:5px 10px white;" >
+
+    <!-- Navigation -->
+    <nav>
         <ul>
-        <li><a href="#">Brain Stroke Prediction</a></li>
-        <li><a href="/stroke" style="margin-left: 1000px;">Prediction</a></li>
-        <li><a href="/" style="margin-left: 20px;">Home</a></li>
-    </ul>
+            <li>
+                <a href="/" class="brand">
+                    Brain Stroke Prediction
+                </a>
+            </li>
+
+            <div class="nav-links">
+                <li>
+                    <a href="/stroke">Prediction</a>
+                </li>
+
+                <li>
+                    <a href="/">Home</a>
+                </li>
+            </div>
+        </ul>
     </nav>
-    
-    <h3 style="margin-left: 400px; font-size: 45px;color: white;"><strong>{{ prediction_text }}</strong>
-    <img src="/static/assets/img/happy.gif"  controls style="margin-left: 250px;" height="600px">
-</h3>
-    
+
+    <!-- Prediction Result -->
+    <main class="result-container">
+        <div class="result-card">
+
+            <h1 class="result-title">
+                Prediction Result
+            </h1>
+
+            <div class="prediction">
+                <strong>{{ prediction_text }}</strong>
+            </div>
+
+            <img
+                src="/static/assets/img/happy.gif"
+                alt="Prediction result illustration"
+                class="result-image"
+            >
+
+            <a href="/stroke" class="back-button">
+                Check Again
+            </a>
+
+        </div>
+    </main>
+
 </body>
 </html>
