@@ -5,7 +5,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import pickle
 import numpy as np
 import pandas as pd
-
+from flask import send_from_directory
+import os
 
 app = Flask(__name__)
 
@@ -217,6 +218,15 @@ def predict():
             )
 
     return render_template('stroke.html')
+
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(
+        os.path.join(app.root_path, 'static'),
+        'favicon.ico',
+        mimetype='image/vnd.microsoft.icon'
+    )
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=8081, debug=True)
